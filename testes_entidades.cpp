@@ -1,11 +1,10 @@
 #include "testes_entidades.h"
 
-const int SUCESSO;
-const int FALHA;
+const int TUUser::SUCESSO;
+const int TUUser::FALHA;
 
 //definicoes dos metodos da classe TUUser
 void TUUser::setUp(){
-	user = new User();
 	estado=SUCESSO;
 }
 

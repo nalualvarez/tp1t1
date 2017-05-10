@@ -2,6 +2,7 @@
 #define ENTIDADES_H_INCLUDED
 
 #include <stdexcept>	//Bliblioteca de execcoes
+#include "dominios.h"
 
 using namespace std;
 
@@ -81,7 +82,7 @@ class Post{		//Classe das postagens
 		void setTexto(const Texto&);
 };
 
-inline void Post::setAvaliacao(const Avaliacao &avaliacao){			//definicao inline dos metodos que acessamos dados das postagens
+inline void Post::setAvaliacao(const Avaliacao &avaliacao){			//definicao inline dos metodos que acessam dados das postagens
 	this->avaliacao_post = avaliacao;
 }
 
