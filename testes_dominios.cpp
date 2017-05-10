@@ -1,25 +1,25 @@
 #include "testes_dominios.h"
 
-const static int TUNome::SUCESSO;
-const static int TUNome::FALHA;
-const static int TUNome::LIMITEVALIDO;
-const static int TUNome::LIMITEINVALIDO;
-const static int TUSenha::LIMITEVALIDO;
-const static int TUSenha::LIMITEINVALIDO;
-const static int TUSenha::SUCESSO;
-const static int TUSenha::FALHA;
-const static int TUEmail::SUCESSO;
-const static int TUEmail::FALHA;
-const static char TUEmail::arroba;
-const static char TUEmail::ponto;
-const static int TUAvaliacao::SUCESSO;
-const static int TUAvaliacao::FALHA;
-const static int TUAvaliacao::VALIDO;
-const static int TUAvaliacao::INVALIDO;
-const static int TUTexto::SUCESSO;
-const static int TUTexto::FALHA;
-const static int TUTexto::LIMITEVALIDO;
-const static int TUTexto::LIMITEINVALIDO;
+const int TUNome::SUCESSO;
+const int TUNome::FALHA;
+const int TUNome::LIMITEVALIDO;
+const int TUNome::LIMITEINVALIDO;
+const int TUSenha::LIMITEVALIDO;
+const int TUSenha::LIMITEINVALIDO;
+const int TUSenha::SUCESSO;
+const int TUSenha::FALHA;
+const int TUEmail::SUCESSO;
+const int TUEmail::FALHA;
+const char TUEmail::arroba;
+const char TUEmail::ponto;
+const int TUAvaliacao::SUCESSO;
+const int TUAvaliacao::FALHA;
+const int TUAvaliacao::VALIDO;
+const int TUAvaliacao::INVALIDO;
+const int TUTexto::SUCESSO;
+const int TUTexto::FALHA;
+const int TUTexto::LIMITEVALIDO;
+const int TUTexto::LIMITEINVALIDO;
 
 //definicoes de metodos da classe TUNome
 void TUNome::setUp(){
@@ -37,14 +37,18 @@ void TUNome::setUp(){
 	estado=SUCESSO;
 }
 
-void TUNome::tearDown{
+void TUNome::tearDown(){
 	delete nome;
 }
 
-void TUNome::testarCenarioSucesso{	
+void TUNome::testarCenarioSucesso(){	
+	int i=0;
+	char* temp;
 	try{
 		nome->setNome(valido);
-		if(nome->getNome!=valido){
+		temp=nome->getNome;
+		while(
+		if(valido){
 			estado=FALHA;
 		}
 	catch(invalid_argument excecao){
@@ -52,7 +56,7 @@ void TUNome::testarCenarioSucesso{
 	}
 }
 
-void TUNome::testarCenarioFalha{
+void TUNome::testarCenarioFalha(){
 	try{
 		nome->setNome(invalido);
 		estado=FALHA;
@@ -87,11 +91,11 @@ void TUSenha::setUp(){
 	estado=SUCESSO;
 }
 
-void TUSenha::tearDown{
+void TUSenha::tearDown(){
 	delete senha;
 }
 
-void TUSenha::testarCenarioSucesso{	
+void TUSenha::testarCenarioSucesso(){	
 	try{
 		senha->setSenha(valido);
 		if(senha->getSenha!=valido){
@@ -102,7 +106,7 @@ void TUSenha::testarCenarioSucesso{
 	}
 }
 
-void TUSenha::testarCenarioFalha{
+void TUSenha::testarCenarioFalha(){
 	try{
 		senha->setSenha(invalido);
 		estado=FALHA;
@@ -149,11 +153,11 @@ void TUEmail::setUp(){
 	estado=SUCESSO;
 }
 
-void TUEmail::tearDown{
+void TUEmail::tearDown(){
 	delete email;
 }
 
-void TUEmail::testarCenarioSucesso{	
+void TUEmail::testarCenarioSucesso(){	
 	try{
 		email->setEmail(valido);
 		if(email->getEmail!=valido){
@@ -164,7 +168,7 @@ void TUEmail::testarCenarioSucesso{
 	}
 }
 
-void TUEmail::testarCenarioFalha{
+void TUEmail::testarCenarioFalha(){
 	try{
 		email->setEmail(invalido);
 		estado=FALHA;
@@ -189,11 +193,11 @@ void TUAvaliacao::setUp(){
 	estado=SUCESSO;
 }
 
-void TUAvaliacao::tearDown{
+void TUAvaliacao::tearDown(){
 	delete avaliacao;
 }
 
-void TUAvaliacao::testarCenarioSucesso{	
+void TUAvaliacao::testarCenarioSucesso(){	
 	try{
 		avaliacao->setAvaliacao(VALIDO);
 		if(avaliacao->getAvaliacao!=VALIDO){
@@ -204,7 +208,7 @@ void TUAvaliacao::testarCenarioSucesso{
 	}
 }
 
-void TUAvaliacao::testarCenarioFalha{
+void TUAvaliacao::testarCenarioFalha(){
 	try{
 		avaliacao->setAvaliacao(INVALIDO);
 		estado=FALHA;
@@ -240,11 +244,11 @@ void TUTexto::setUp(){
 	estado=SUCESSO;
 }
 
-void TUTexto::tearDown{
+void TUTexto::tearDown(){
 	delete avaliacao;
 }
 
-void TUTexto::testarCenarioSucesso{	
+void TUTexto::testarCenarioSucesso(){	
 	try{
 		texto->setTexto(VALIDO);
 		if(texto->getTexto!=VALIDO){
@@ -255,7 +259,7 @@ void TUTexto::testarCenarioSucesso{
 	}
 }
 
-void TUTexto::testarCenarioFalha{
+void TUTexto::testarCenarioFalha(){
 	try{
 		texto->setTexto(INVALIDO);
 		estado=FALHA;

@@ -10,6 +10,7 @@ class TUNome{			//teste da classe do nome
 	private:
 		
 		char valido[20], invalido[25];
+		const static int LIMITEVALIDO = 20, LIMITEINVALIDO = 25;
 		
 		Nome *nome;		//referencia ao objeto que sera testado
 		
@@ -31,7 +32,8 @@ class TUNome{			//teste da classe do nome
 class TUSenha{
 	private:
 		
-		char valido[5], invalido[10];
+		char valido[6], invalido[10];
+		const static int LIMITEVALIDO = 6, LIMITEINVALIDO = 10;
 		
 		Senha *senha;
 		
@@ -53,6 +55,7 @@ class TUEmail{		//teste da classe do email
 	private:
 		
 		char valido[20], invalido[20];
+		const static char arroba='@', ponto='.';
 		
 		Email *email;
 		
@@ -73,7 +76,7 @@ class TUEmail{		//teste da classe do email
 class TUAvaliacao{
 	private:
 		
-		int valido, invalido;
+		const static int VALIDO=3, INVALIDO=6;
 		
 		Avaliacao *avaliacao;
 		
@@ -95,7 +98,7 @@ class TUTexto{
 	private:
 		
 		char valido[50], invalido[60];
-		
+		const static int LIMITEVALIDO=50, LIMITEINVALIDO=60;
 		Texto *texto;
 		
 		int estado;
@@ -117,4 +120,3 @@ class TUTexto{
 
 
 #endif // TESTES_H_INCLUDED
-
