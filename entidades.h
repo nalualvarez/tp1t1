@@ -2,7 +2,6 @@
 #define ENTIDADES_H_INCLUDED
 
 #include <stdexcept>	//Bliblioteca de execcoes
-#include "dominios.h"	//Biblioteca de dominios
 
 using namespace std;
 
@@ -19,7 +18,7 @@ class User{			//Classe do usuario
 		Email getEmail() const {
 			return email_user;
 		}
-		Senha senha_user() const {
+		Senha getSenha() const {
 			return senha_user;
 		}
 		void setNome(const Nome&);				
@@ -27,7 +26,7 @@ class User{			//Classe do usuario
 		void setSenha(const Senha&);
 };
 
-inline void User::setNome(const Nome nome&) {			//declaracao inline dos metodos de acesso aos dados da classe do usuario
+inline void User::setNome(const Nome &nome) {			//declaracao inline dos metodos de acesso aos dados da classe do usuario
 	this->nome_user = nome;
 }
 
@@ -39,35 +38,6 @@ inline void User::setSenha(const Senha &senha) {
 	this->senha_user = senha;
 }
 
-class Avaliacao{		//Classe da avaliacao
-	private:
-		int avaliacao;
-		
-	public:
-		Avaliacao(): avaliacao(-1);		//Construtor da classe
-		
-		int getAvaliacao() const{
-			return avaliacao;
-		}
-		
-		void setAvaliacao(int) throw (invalid_argument);
-};
-
-inline void Avaliacao::setAvaliacao(int avaliacao) throw (invalid_argument){		//declaracao inline dos metodos que acessam os dados da avaliacao
-	int temp;
-	
-	if ((avaliacao<1)||(avaliacao>5)){
-		throw invalid_argument ("Argumento invalido");
-	}
-	
-	if(this->avaliacao==-1){
-		temp = avaliacao;
-	}
-	else{
-		temp=((this->avaliacao + avaliacao)/2);
-	}
-	this->avaliacao = temp;
-}
 	
 		
 
@@ -85,16 +55,43 @@ class Comment{		//Classe do comentario
 		}
 		void setTexto(const Texto&);
 		void setNome(const Nome&);
-}
+};
 
-inline Comment::setTexto(const Texto &texto){		//declaracao inline dos metodos que acessam os dados dos comentarios
+inline void Comment::setTexto(const Texto &texto){		//declaracao inline dos metodos que acessam os dados dos comentarios
 	this->texto_comment = texto;
 }
 
-inline Comment::setNome(const Nome &nome){
+inline void Comment::setNome(const Nome &nome){
 	this->nome_comment = nome;
 }
 
+class Post{
+	private:
+		Texto texto_post;
+		Avaliacao avaliacao_post;
+	
+	public:
+		Texto getTexto() const{
+			return texto_post;
+		}
+		Avaliacao getAvaliacao() const{
+			return avaliacao_post;
+		}
+		void setAvaliacao(const Avaliacao&);
+		void setTexto(const Texto&);
+};
+
+inline void Post::setAvaliacao(const Avaliacao &avaliacao){
+	this->avaliacao_post = avaliacao;
+}
+
+inline void Post::setTexto(const Texto &texto){
+	this->texto_post = texto;
+}
+
+class Blog{
+};
+		
 
 
 
