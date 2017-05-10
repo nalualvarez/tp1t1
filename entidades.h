@@ -65,13 +65,13 @@ inline void Comment::setNome(const Nome &nome){
 	this->nome_comment = nome;
 }
 
-class Post{
+class Post{		//Classe das postagens
 	private:
 		Texto texto_post;
 		Avaliacao avaliacao_post;
 	
 	public:
-		Texto getTexto() const{
+		Texto getTexto() const{		//declaracao e definicao dos metodos que acessam os dados das postagens
 			return texto_post;
 		}
 		Avaliacao getAvaliacao() const{
@@ -81,7 +81,7 @@ class Post{
 		void setTexto(const Texto&);
 };
 
-inline void Post::setAvaliacao(const Avaliacao &avaliacao){
+inline void Post::setAvaliacao(const Avaliacao &avaliacao){			//definicao inline dos metodos que acessamos dados das postagens
 	this->avaliacao_post = avaliacao;
 }
 
@@ -90,12 +90,26 @@ inline void Post::setTexto(const Texto &texto){
 }
 
 class Blog{
+	private:
+		Nome nome_blog, nome_autor;
+	
+	public:
+		Nome getNomeBlog() const{
+			return nome_blog;
+		}
+		Nome getNomeAutor() const{
+			return nome_autor;
+		}
+		void setNomeBlog(const Nome&);
+		void setNomeAutor(const Nome&);
 };
+
+inline void Blog::setNomeBlog(const Nome &nome){
+	this->nome_blog = nome;
+}
+inline void Blog::setNomeAutor(const Nome &nome){
+	this->nome_autor = nome;
+}
 		
-
-
-
-
-
-
+		 
 #endif // ENTIDADES_H_INCLUDED
