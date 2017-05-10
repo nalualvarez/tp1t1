@@ -38,6 +38,7 @@ private:
 
 public:
 	void setSenha (char*) throw (invalid_argument);
+	char* getSenha();
 
 };
 
@@ -53,6 +54,7 @@ private:
 
 public:
 	void setEmail (char*) throw (invalid_argument);
+	char* getEmail();
 	
 };
 
@@ -66,6 +68,7 @@ private:
 
 public:
 	void setAvaliacao(int) throw (invalid_argument);
+	int getAvaliacao();
 };
 
 class Texto{
@@ -76,6 +79,7 @@ private:
 	void validar(char*) throw (invalid_argument);
 public:
 	void setTexto (char*) throw (invalid_argument);
+	char* getTexto();
 };
 
 #endif 

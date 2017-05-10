@@ -44,13 +44,17 @@ void TUNome::tearDown(){
 void TUNome::testarCenarioSucesso(){	
 	int i=0;
 	char* temp;
+	
 	try{
 		nome->setNome(valido);
-		temp=nome->getNome;
-		while(
-		if(valido){
-			estado=FALHA;
+		temp=nome->getNome();
+		while(temp[i]!='\0'){
+			if(temp[i]!=valido[i]){
+				estado=FALHA;
+			}
+			i++;
 		}
+	}
 	catch(invalid_argument excecao){
 		estado=FALHA;
 	}
@@ -96,11 +100,19 @@ void TUSenha::tearDown(){
 }
 
 void TUSenha::testarCenarioSucesso(){	
+	char* temp;
+	int i=0;
+	
 	try{
 		senha->setSenha(valido);
-		if(senha->getSenha!=valido){
-			estado=FALHA;
+		temp=senha->getSenha();
+		while(temp[i]!='\0'){
+			if(temp[i]!=valido[i]){
+				estado=FALHA;
+			}
+			i++;
 		}
+	}
 	catch(invalid_argument excecao){
 		estado=FALHA;
 	}
@@ -158,11 +170,19 @@ void TUEmail::tearDown(){
 }
 
 void TUEmail::testarCenarioSucesso(){	
+	char* temp;
+	int i=0;
+	
 	try{
 		email->setEmail(valido);
-		if(email->getEmail!=valido){
-			estado=FALHA;
+		temp = email->getEmail();
+		while(temp[i]!='\0'){
+			if(temp[i]!=valido[i]){
+				estado=FALHA;
+			}
+			i++;
 		}
+	}
 	catch(invalid_argument excecao){
 		estado=FALHA;
 	}
@@ -200,9 +220,10 @@ void TUAvaliacao::tearDown(){
 void TUAvaliacao::testarCenarioSucesso(){	
 	try{
 		avaliacao->setAvaliacao(VALIDO);
-		if(avaliacao->getAvaliacao!=VALIDO){
+		if(avaliacao->getAvaliacao()!=VALIDO){
 			estado=FALHA;
 		}
+	}
 	catch(invalid_argument excecao){
 		estado=FALHA;
 	}
@@ -245,15 +266,23 @@ void TUTexto::setUp(){
 }
 
 void TUTexto::tearDown(){
-	delete avaliacao;
+	delete texto;
 }
 
 void TUTexto::testarCenarioSucesso(){	
+	char* temp;
+	int i=0;
+	
 	try{
-		texto->setTexto(VALIDO);
-		if(texto->getTexto!=VALIDO){
-			estado=FALHA;
+		texto->setTexto(valido);
+		temp=texto->getTexto();
+		while(temp[i]!='\0'){
+			if(temp[i]!=valido[i]){
+				estado=FALHA;
+			}
+			i++;
 		}
+	}
 	catch(invalid_argument excecao){
 		estado=FALHA;
 	}
@@ -261,7 +290,7 @@ void TUTexto::testarCenarioSucesso(){
 
 void TUTexto::testarCenarioFalha(){
 	try{
-		texto->setTexto(INVALIDO);
+		texto->setTexto(invalido);
 		estado=FALHA;
 	}
 	catch(invalid_argument excecao){

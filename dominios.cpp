@@ -86,6 +86,10 @@ void Senha::setSenha(char* senha) throw (invalid_argument){
 	this->senha[i]='\0';
 }
 
+char* Senha::getSenha(){
+	return senha;
+}
+
 /*A funcao validar verifica se o email inserido tem as caracteristicas desejaveis */
 void Email::validar (char* email) throw (invalid_argument){
 	int i=0;
@@ -131,6 +135,9 @@ void Email::setEmail(char* email) throw (invalid_argument){
 	}
 }
 
+char* Email::getEmail(){
+	return email;
+}
 /*A funcao validar verifica se a avaliacao tem as caracteristicas desejaveis */
 void Avaliacao::validar (int avaliacao) throw (invalid_argument){
 	if ((avaliacao>5)||(avaliacao<1)){ /*verifica se a avaliaçao é diferente de 1, 2, 3, 4 ou 5*/
@@ -143,6 +150,11 @@ void Avaliacao::setAvaliacao(int) throw (invalid_argument){
 	validar (avaliacao); /*chama a funcao validar*/
 	this-> avaliacao = avaliacao; /*seta avaliacao*/
 }
+
+int Avaliacao::getAvaliacao(){
+	return avaliacao;
+}
+
 
 /*A funcao validar verifica se o texto inserido tem as caracteristicas desejaveis */
 void Texto::validar (char* texto) throw (invalid_argument){
@@ -166,3 +178,8 @@ void Texto::setTexto(char* texto) throw (invalid_argument){
 	}
 	this->texto[i] = '\0';
 }
+
+char* Texto::getTexto(){
+	return texto;
+}
+
