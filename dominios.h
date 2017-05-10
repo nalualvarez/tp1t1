@@ -16,14 +16,14 @@ using namespace std;
 class Nome{
 
 private:
-	char[21] nome;
+	char nome[21];
 	const static int LIMITE = 20; /*Limite de 20 caracteres por nome*/
 	
-	void validar(char) throw (invalid_argument); 
+	void validar(char*) throw (invalid_argument); 
 
 public:
-	void setNome (char) throw (invalid_argument);
-	char getNome () const;
+	void setNome (char*) throw (invalid_argument);
+	char* getNome ();
 
 }; 
 
@@ -31,13 +31,13 @@ public:
 class Senha{
 
 private:
-	char [6] senha;
+	char senha[6];
 	const static int LIMITE = 5; /*a senha deve ter 5 caracteres*/
 	
-	void validar(char)	throw (invalid_argument);
+	void validar(char*)	throw (invalid_argument);
 
 public:
-	void setSenha (char) throw (invalid_argument);
+	void setSenha (char*) throw (invalid_argument);
 
 };
 
@@ -45,14 +45,14 @@ public:
 class Email{
 
 private:
-	char[50]email;
+	char email[50];
 	
-	void validar(char) throw (invalid_argument);
+	void validar(char*) throw (invalid_argument);
 	const static char arroba = '@';
 	const static char ponto = '.';
 
 public:
-	void setEmail (char) throw (invalid_argument);
+	void setEmail (char*) throw (invalid_argument);
 	
 };
 
@@ -62,19 +62,20 @@ class Avaliacao{
 private:
 	int avaliacao;
 	
-	void validar (int) throw (invalid_argument);
+	void validar(int) throw (invalid_argument);
 
 public:
-	void setAvaliacao (int) thow (invalid_argument);
+	void setAvaliacao(int) throw (invalid_argument);
 };
 
 class Texto{
 
 private:
-	char[50] texto;
+	char texto[50];
 	const static int LIMITE = 50; /*o texto deve ter ate 50 caracteres*/
+	void validar(char*) throw (invalid_argument);
 public:
-	void setTexto (char) throw (invalid_argument);
+	void setTexto (char*) throw (invalid_argument);
 };
 
 #endif 

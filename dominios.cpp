@@ -1,10 +1,11 @@
 #include "dominios.h"
 
 
-const int Codigo::LIMITE;
+const int Nome::LIMITE;
+const int Senha::LIMITE;
 
 /*A funçao validar verifica se o Nome tem as caracteristicas desejaveis*/
-void Nome::validar(char nome) throw (invalid_argument){
+void Nome::validar(char* nome) throw (invalid_argument){
 	
 	int i=0;
 	
@@ -32,21 +33,26 @@ void Nome::validar(char nome) throw (invalid_argument){
 }
 
 /*A funcao setNome cria o objeto nome*/
-void Nome::setNome (char nome) throw (invalid_argument){
+void Nome::setNome (char* nome) throw (invalid_argument){
+	int i=0;
 	
 	validar (nome); /*chama a função validar*/
-	this-> nome = nome; /*seta o nome*/
+	while(nome[i]!='\0'){
+		this-> nome[i] = nome[i]; /*seta o nome*/
+		i++;
+	}
+	this->nome[i]='\0'; 
 	
 }
 
 /*A funcao getNome recupera o nome*/
-char Nome::getNome() const {
+char* Nome::getNome() {
 	
 	return nome; /*retorna o nome*/
 }
 
 /*A funcao validar verifica se a senha escolhida tem as caracteristicas desejaveis*/
-void Senha::validar (char senha) throw (invalid_argument){
+void Senha::validar (char* senha) throw (invalid_argument){
 	int i=0;
 	int j;
 	
@@ -62,36 +68,42 @@ void Senha::validar (char senha) throw (invalid_argument){
 		
 		for (j=i+1;j<LIMITE;j++){
 			if (senha[i]==senha[j]){
-				throw invalid_argument ("Argumento invalido.")
+				throw invalid_argument ("Argumento invalido.");
 			}
 		}
 	}
 }
 
 /*A funcao setSenha cria o objeto senha*/
-void Senha::setSenha(char senha) throw (invalid_argument){
+void Senha::setSenha(char* senha) throw (invalid_argument){
+	int i=0;
+	
 	validar(senha); /*chama a funcao de validacao*/
-	this-> senha = senha; /*seta a senha*/
+	while(senha[i]!='\0'){
+		this-> senha[i] = senha[i]; /*seta a senha*/
+		i++;
+	}
+	this->senha[i]='\0';
 }
 
 /*A funcao validar verifica se o email inserido tem as caracteristicas desejaveis */
-void Email::validar (char email) throw (invalid_argument){
+void Email::validar (char* email) throw (invalid_argument){
 	int i=0;
 	int flag_arroba=0; /*flag para indicar se o arroba foi encontrado no email digitado*/
 	int flag_ponto=0; /*flag para indicar se o ponto foi encontrado no email digitado*/
 	
 	while (email[i]=!'\0'){ /*testa se os caracteres inseridos sao letras*/
-		if ((nome[i]=='1')||(nome[i]=='2')||(nome[i]=='3')||(nome[i]=='4')||(nome[i]=='5')||(nome[i]=='6')||(nome[i]=='7')||(nome[i]=='8')||(nome[i]=='9')||(nome[i]=='0')
-			||(nome[i]=='!')||(nome[i]=='#')||(nome[i]=='$')||(nome[i]=='%')||(nome[i]=='^')||(nome[i]=='&')||(nome[i]=='*')||(nome[i]=='(')||(nome[i]==')')
-			||(nome[i]=='~')||(nome[i]=='`')||(nome[i]=='-')||(nome[i]=='_')||(nome[i]=='+')||(nome[i]=='=')||(nome[i]=='[')||(nome[i]==']')||(nome[i]=='{')||(nome[i]=='}')
-			||(nome[i]==':')||(nome[i]==';')||(nome[i]=='<')||(nome[i]=='>')||(nome[i]==',')||(nome[i]=='?')||(nome[i]=='/')){
+		if ((email[i]=='1')||(email[i]=='2')||(email[i]=='3')||(email[i]=='4')||(email[i]=='5')||(email[i]=='6')||(email[i]=='7')||(email[i]=='8')||(email[i]=='9')||(email[i]=='0')
+			||(email[i]=='!')||(email[i]=='#')||(email[i]=='$')||(email[i]=='%')||(email[i]=='^')||(email[i]=='&')||(email[i]=='*')||(email[i]=='(')||(email[i]==')')
+			||(email[i]=='~')||(email[i]=='`')||(email[i]=='-')||(email[i]=='_')||(email[i]=='+')||(email[i]=='=')||(email[i]=='[')||(email[i]==']')||(email[i]=='{')||(email[i]=='}')
+			||(email[i]==':')||(email[i]==';')||(email[i]=='<')||(email[i]=='>')||(email[i]==',')||(email[i]=='?')||(email[i]=='/')){
 
 			throw invalid_argument("Argumento invalido.");
 
 		}
 		if (email[i]==arroba){
 			if (flag_arroba =='1'){ /*se uma arroba for encontrada e a flag ja estiver marcada, ha dois @ no email*/
-				throw invalid_argument ("Argumento_invalido.")
+				throw invalid_argument ("Argumento_invalido.");
 			}
 			else{
 				flag_arroba = 1; /*se uma arroba for encontrada e a flag for zero, setar a flag com 1*/
@@ -99,7 +111,7 @@ void Email::validar (char email) throw (invalid_argument){
 		}
 		if (email[i]==ponto){
 			if (flag_ponto =='1'){  /*se um ponto for encontrado e a flag ja estiver marcada, ha dois pontos no email*/
-				throw invalid_argument ("Argumento_invalido.")
+				throw invalid_argument ("Argumento_invalido.");
 			}
 			else{
 				flag_ponto = 1; /*se um ponto for encontrado e a flag for zero, setar a flag com 1*/
@@ -109,14 +121,19 @@ void Email::validar (char email) throw (invalid_argument){
 }
 
 /*A funcao setEmail cria objeto email*/
-void Email::setEmail(char email) throw (invalid_argument){
+void Email::setEmail(char* email) throw (invalid_argument){
+	int i=0;
+	
 	validar (email); /*chama a funcao validar*/
-	this-> email = email; /*seta o email*/
+	while(email[i]!='\0'){
+		this-> email[i] = email[i]; /*seta o email*/
+		i++;
+	}
 }
 
 /*A funcao validar verifica se a avaliacao tem as caracteristicas desejaveis */
 void Avaliacao::validar (int avaliacao) throw (invalid_argument){
-	if ((avaliacao>5)||(avaliacao<1){ /*verifica se a avaliaçao é diferente de 1, 2, 3, 4 ou 5*/
+	if ((avaliacao>5)||(avaliacao<1)){ /*verifica se a avaliaçao é diferente de 1, 2, 3, 4 ou 5*/
 		throw invalid_argument("Argumento invalido.");
 	}
 }
@@ -128,9 +145,9 @@ void Avaliacao::setAvaliacao(int) throw (invalid_argument){
 }
 
 /*A funcao validar verifica se o texto inserido tem as caracteristicas desejaveis */
-void Texto::validar (char texto) throw (invalid_argument){
+void Texto::validar (char* texto) throw (invalid_argument){
 	int i=0;
-	while (char[i]!='\0'){ /*conta os caracteres do texto*/
+	while (texto[i]!='\0'){ /*conta os caracteres do texto*/
 		i++;
 	}
 	if (i>=LIMITE){ /*se os caracteres do texto forem maior que o limite, da erro*/
@@ -139,7 +156,13 @@ void Texto::validar (char texto) throw (invalid_argument){
 }
 
 /*A funcao setTexto cria objeto texto*/
-void Texto::setTexto(char texto) throw (invalid_argument){
+void Texto::setTexto(char* texto) throw (invalid_argument){
+	int i=0;
+	
 	validar (texto); /*chama a funcao validar*/
-	this-> texto = texto; /*seta o texto*/
+	while(texto[i]!='\0'){
+		this-> texto[i] = texto[i]; /*seta o texto*/
+		i++;
+	}
+	this->texto[i] = '\0';
 }
