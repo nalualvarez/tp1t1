@@ -1,18 +1,18 @@
 #ifndef ENTIDADES_H_INCLUDED
 #define ENTIDADES_H_INCLUDED
 
-#include <stdexcept>	//Bliblioteca de execcoes
+#include <stdexcept>	/**Bliblioteca de execcoes*/
 #include "dominios.h"
 
 using namespace std;
 
-class User{			//Classe do usuario
+class User{			/**Classe do usuario*/
 	private:
 		Nome nome_user;
 		Email email_user;
 		Senha senha_user;
 		
-	public:					//Metodos para acessar os dados da classe do usuario
+	public:					/**Metodos para acessar os dados da classe do usuario*/
 		Nome getNome() const {
 			return nome_user;
 		}
@@ -27,7 +27,7 @@ class User{			//Classe do usuario
 		void setSenha(const Senha&);
 };
 
-inline void User::setNome(const Nome &nome) {			//declaracao inline dos metodos de acesso aos dados da classe do usuario
+inline void User::setNome(const Nome &nome) {			/**declaracao inline dos metodos de acesso aos dados da classe do usuario*/
 	this->nome_user = nome;
 }
 
@@ -42,13 +42,13 @@ inline void User::setSenha(const Senha &senha) {
 	
 		
 
-class Comment{		//Classe do comentario
+class Comment{		/**Classe do comentario*/
 	private:
 		Texto texto_comment;
 		Nome nome_comment;
 		
 	public:
-		Texto getTexto() const{				//Metodos que acessam os dados dos comentarios
+		Texto getTexto() const{				/**Metodos que acessam os dados dos comentarios*/
 			return texto_comment;
 		}
 		Nome getNome() const{
@@ -58,7 +58,7 @@ class Comment{		//Classe do comentario
 		void setNome(const Nome&);
 };
 
-inline void Comment::setTexto(const Texto &texto){		//declaracao inline dos metodos que acessam os dados dos comentarios
+inline void Comment::setTexto(const Texto &texto){		/**declaracao inline dos metodos que acessam os dados dos comentarios*/
 	this->texto_comment = texto;
 }
 
@@ -66,13 +66,13 @@ inline void Comment::setNome(const Nome &nome){
 	this->nome_comment = nome;
 }
 
-class Post{		//Classe das postagens
+class Post{		/**Classe das postagens*/
 	private:
 		Texto texto_post;
 		Avaliacao avaliacao_post;
 	
 	public:
-		Texto getTexto() const{		//declaracao e definicao dos metodos que acessam os dados das postagens
+		Texto getTexto() const{		/**declaracao e definicao dos metodos que acessam os dados das postagens*/
 			return texto_post;
 		}
 		Avaliacao getAvaliacao() const{
@@ -82,7 +82,7 @@ class Post{		//Classe das postagens
 		void setTexto(const Texto&);
 };
 
-inline void Post::setAvaliacao(const Avaliacao &avaliacao){			//definicao inline dos metodos que acessam dados das postagens
+inline void Post::setAvaliacao(const Avaliacao &avaliacao){			/**definicao inline dos metodos que acessam dados das postagens*/
 	this->avaliacao_post = avaliacao;
 }
 
@@ -90,12 +90,12 @@ inline void Post::setTexto(const Texto &texto){
 	this->texto_post = texto;
 }
 
-class Blog{
+class Blog{				/**Classe das blogs*/
 	private:
 		Nome nome_blog, nome_autor;
 	
 	public:
-		Nome getNomeBlog() const{
+		Nome getNomeBlog() const{		/**declaracao e definicao dos metodos que acessam os dados das blogs*/
 			return nome_blog;
 		}
 		Nome getNomeAutor() const{
@@ -105,7 +105,7 @@ class Blog{
 		void setNomeAutor(const Nome&);
 };
 
-inline void Blog::setNomeBlog(const Nome &nome){
+inline void Blog::setNomeBlog(const Nome &nome){			/**definicao inline dos metodos que acessam dados das blogs*/
 	this->nome_blog = nome;
 }
 inline void Blog::setNomeAutor(const Nome &nome){
@@ -113,4 +113,4 @@ inline void Blog::setNomeAutor(const Nome &nome){
 }
 		
 		 
-#endif // ENTIDADES_H_INCLUDED
+#endif /**ENTIDADES_H_INCLUDED*/

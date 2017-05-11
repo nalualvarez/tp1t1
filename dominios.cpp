@@ -4,12 +4,12 @@
 const int Nome::LIMITE;
 const int Senha::LIMITE;
 
-/*A funçao validar verifica se o Nome tem as caracteristicas desejaveis*/
+/**A funçao validar verifica se o Nome tem as caracteristicas desejaveis*/
 void Nome::validar(char* nome) throw (invalid_argument){
 	
 	int i=0;
 	
-	/*Testa se os caracteres inseridos sao letras*/
+	/**Testa se os caracteres inseridos sao letras*/
 	while (nome[i]=!'\0'){ 
 		i++;
 		if ((nome[i]=='1')||(nome[i]=='2')||(nome[i]=='3')||(nome[i]=='4')||(nome[i]=='5')||(nome[i]=='6')||(nome[i]=='7')||(nome[i]=='8')||(nome[i]=='9')||(nome[i]=='0')
@@ -25,42 +25,42 @@ void Nome::validar(char* nome) throw (invalid_argument){
 		
 	}
 	
-	/*testa a quantidade limite de caracteres*/
+	/**testa a quantidade limite de caracteres*/
 	if (i>LIMITE){
 		throw invalid_argument("Argumento invalido.");
 	}
 	
 }
 
-/*A funcao setNome cria o objeto nome*/
+/**A funcao setNome cria o objeto nome*/
 void Nome::setNome (char* nome) throw (invalid_argument){
 	int i=0;
 	
-	validar (nome); /*chama a função validar*/
+	validar (nome); /**chama a função validar*/
 	while(nome[i]!='\0'){
-		this-> nome[i] = nome[i]; /*seta o nome*/
+		this-> nome[i] = nome[i]; /**seta o nome*/
 		i++;
 	}
 	this->nome[i]='\0'; 
 	
 }
 
-/*A funcao getNome recupera o nome*/
+/**A funcao getNome recupera o nome*/
 char* Nome::getNome() {
 	
-	return nome; /*retorna o nome*/
+	return nome; /**retorna o nome*/
 }
 
-/*A funcao validar verifica se a senha escolhida tem as caracteristicas desejaveis*/
+/**A funcao validar verifica se a senha escolhida tem as caracteristicas desejaveis*/
 void Senha::validar (char* senha) throw (invalid_argument){
 	int i=0;
 	int j;
 	
-	while (senha[i]=!'\0'){ /*Percorre o vetor para contar os caracteres*/
+	while (senha[i]=!'\0'){ /**Percorre o vetor para contar os caracteres*/
 		i++;
 	}
 	
-	if (i!=LIMITE){ /*testa se a senha tem a quantidade certa de caracteres*/
+	if (i!=LIMITE){ /**testa se a senha tem a quantidade certa de caracteres*/
 		throw invalid_argument("Argumento invalido.");
 	}
 	
@@ -74,13 +74,13 @@ void Senha::validar (char* senha) throw (invalid_argument){
 	}
 }
 
-/*A funcao setSenha cria o objeto senha*/
+/**A funcao setSenha cria o objeto senha*/
 void Senha::setSenha(char* senha) throw (invalid_argument){
 	int i=0;
 	
-	validar(senha); /*chama a funcao de validacao*/
+	validar(senha); /**chama a funcao de validacao*/
 	while(senha[i]!='\0'){
-		this-> senha[i] = senha[i]; /*seta a senha*/
+		this-> senha[i] = senha[i]; /**seta a senha*/
 		i++;
 	}
 	this->senha[i]='\0';
@@ -90,13 +90,13 @@ char* Senha::getSenha(){
 	return senha;
 }
 
-/*A funcao validar verifica se o email inserido tem as caracteristicas desejaveis */
+/**A funcao validar verifica se o email inserido tem as caracteristicas desejaveis */
 void Email::validar (char* email) throw (invalid_argument){
 	int i=0;
-	int flag_arroba=0; /*flag para indicar se o arroba foi encontrado no email digitado*/
-	int flag_ponto=0; /*flag para indicar se o ponto foi encontrado no email digitado*/
+	int flag_arroba=0; /**flag para indicar se o arroba foi encontrado no email digitado*/
+	int flag_ponto=0; /**flag para indicar se o ponto foi encontrado no email digitado*/
 	
-	while (email[i]=!'\0'){ /*testa se os caracteres inseridos sao letras*/
+	while (email[i]=!'\0'){ /**testa se os caracteres inseridos sao letras*/
 		if ((email[i]=='1')||(email[i]=='2')||(email[i]=='3')||(email[i]=='4')||(email[i]=='5')||(email[i]=='6')||(email[i]=='7')||(email[i]=='8')||(email[i]=='9')||(email[i]=='0')
 			||(email[i]=='!')||(email[i]=='#')||(email[i]=='$')||(email[i]=='%')||(email[i]=='^')||(email[i]=='&')||(email[i]=='*')||(email[i]=='(')||(email[i]==')')
 			||(email[i]=='~')||(email[i]=='`')||(email[i]=='-')||(email[i]=='_')||(email[i]=='+')||(email[i]=='=')||(email[i]=='[')||(email[i]==']')||(email[i]=='{')||(email[i]=='}')
@@ -106,19 +106,19 @@ void Email::validar (char* email) throw (invalid_argument){
 
 		}
 		if (email[i]==arroba){
-			if (flag_arroba =='1'){ /*se uma arroba for encontrada e a flag ja estiver marcada, ha dois @ no email*/
+			if (flag_arroba =='1'){ /**se uma arroba for encontrada e a flag ja estiver marcada, ha dois @ no email*/
 				throw invalid_argument ("Argumento_invalido.");
 			}
 			else{
-				flag_arroba = 1; /*se uma arroba for encontrada e a flag for zero, setar a flag com 1*/
+				flag_arroba = 1; /**se uma arroba for encontrada e a flag for zero, setar a flag com 1*/
 			}
 		}
 		if (email[i]==ponto){
-			if (flag_ponto =='1'){  /*se um ponto for encontrado e a flag ja estiver marcada, ha dois pontos no email*/
+			if (flag_ponto =='1'){  /**se um ponto for encontrado e a flag ja estiver marcada, ha dois pontos no email*/
 				throw invalid_argument ("Argumento_invalido.");
 			}
 			else{
-				flag_ponto = 1; /*se um ponto for encontrado e a flag for zero, setar a flag com 1*/
+				flag_ponto = 1; /**se um ponto for encontrado e a flag for zero, setar a flag com 1*/
 			}
 		}
 	}
@@ -138,17 +138,17 @@ void Email::setEmail(char* email) throw (invalid_argument){
 char* Email::getEmail(){
 	return email;
 }
-/*A funcao validar verifica se a avaliacao tem as caracteristicas desejaveis */
+/**A funcao validar verifica se a avaliacao tem as caracteristicas desejaveis */
 void Avaliacao::validar (int avaliacao) throw (invalid_argument){
-	if ((avaliacao>5)||(avaliacao<1)){ /*verifica se a avaliaçao é diferente de 1, 2, 3, 4 ou 5*/
+	if ((avaliacao>5)||(avaliacao<1)){ /**verifica se a avaliaçao é diferente de 1, 2, 3, 4 ou 5*/
 		throw invalid_argument("Argumento invalido.");
 	}
 }
 
-/*A funcao setAvaliacao cria objeto avaliacao*/
+/**A funcao setAvaliacao cria objeto avaliacao*/
 void Avaliacao::setAvaliacao(int) throw (invalid_argument){
-	validar (avaliacao); /*chama a funcao validar*/
-	this-> avaliacao = avaliacao; /*seta avaliacao*/
+	validar (avaliacao); /**chama a funcao validar*/
+	this-> avaliacao = avaliacao; /**seta avaliacao*/
 }
 
 int Avaliacao::getAvaliacao(){
@@ -156,24 +156,24 @@ int Avaliacao::getAvaliacao(){
 }
 
 
-/*A funcao validar verifica se o texto inserido tem as caracteristicas desejaveis */
+/**A funcao validar verifica se o texto inserido tem as caracteristicas desejaveis */
 void Texto::validar (char* texto) throw (invalid_argument){
 	int i=0;
-	while (texto[i]!='\0'){ /*conta os caracteres do texto*/
+	while (texto[i]!='\0'){ /**conta os caracteres do texto*/
 		i++;
 	}
-	if (i>=LIMITE){ /*se os caracteres do texto forem maior que o limite, da erro*/
+	if (i>=LIMITE){ /**se os caracteres do texto forem maior que o limite, da erro*/
 		throw invalid_argument("Argumento invalido.");
 	}
 }
 
-/*A funcao setTexto cria objeto texto*/
+/**A funcao setTexto cria objeto texto*/
 void Texto::setTexto(char* texto) throw (invalid_argument){
 	int i=0;
 	
-	validar (texto); /*chama a funcao validar*/
+	validar (texto); /**chama a funcao validar*/
 	while(texto[i]!='\0'){
-		this-> texto[i] = texto[i]; /*seta o texto*/
+		this-> texto[i] = texto[i]; /**seta o texto*/
 		i++;
 	}
 	this->texto[i] = '\0';

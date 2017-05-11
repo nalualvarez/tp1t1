@@ -21,7 +21,7 @@ const int TUTexto::FALHA;
 const int TUTexto::LIMITEVALIDO;
 const int TUTexto::LIMITEINVALIDO;
 
-//definicoes de metodos da classe TUNome
+/**definicoes de metodos da classe TUNome*/
 void TUNome::setUp(){
 	int i;
 	
@@ -78,7 +78,7 @@ int TUNome::run(){
     return estado;
 }
 
-//definicoes de metodos da classe TUSenha
+/**definicoes de metodos da classe TUSenha*/
 
 void TUSenha::setUp(){
 	int i;
@@ -136,7 +136,7 @@ int TUSenha::run(){
     return estado;
 }
 
-//definicoes de metodos da classe TUEmail
+/**definicoes de metodos da classe TUEmail*/
 
 
 void TUEmail::setUp(){
@@ -206,7 +206,7 @@ int TUEmail::run(){
     return estado;
 }	
 
-//definicoes de metodos da classe TUAvaliacao
+/**definicoes de metodos da classe TUAvaliacao*/
 
 void TUAvaliacao::setUp(){
 	avaliacao = new Avaliacao();
@@ -247,7 +247,7 @@ int TUAvaliacao::run(){
     return estado;
 }
 
-/*definicoes de metodos da clase TUTexto*/
+/**definicoes de metodos da clase TUTexto*/
 
 void TUTexto::setUp(){
 	int i;
